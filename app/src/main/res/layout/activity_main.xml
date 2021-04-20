@@ -4,12 +4,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:fontFamily="@font/fontmain"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivWaifuOp1"
+        app:layout_constraintVertical_bias="0.552" />
+
+    <LinearLayout
+        android:id="@+id/layoutStatsInfo"
+        android:layout_width="91dp"
+        android:layout_height="209dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintStart_toEndOf="@+id/ivWaifuOp1"
+        app:layout_constraintTop_toBottomOf="@+id/scrollview"
+        app:layout_constraintVertical_bias="0.564">
+
+        <TextView
+            android:id="@+id/tvStatInfo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/fontmain"
+            android:text="Height"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvStatInfo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/fontmain"
+            android:text="Weight"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvStatsInfo3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/fontmain"
+            android:text="Breast"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvStatsInfo4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/fontmain"
+            android:text="Sign"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutStats"
+        android:layout_width="91dp"
+        android:layout_height="209dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivWaifuOp1"
+        app:layout_constraintTop_toBottomOf="@+id/scrollview"
+        app:layout_constraintVertical_bias="0.564">
+
+        <TextView
+            android:id="@+id/tvStat1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/fontmain"
+            android:text="Height"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvStat2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/fontmain"
+            android:text="Weight"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/fontmain"
+            android:text="Breast"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvStats4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/fontmain"
+            android:text="Sign"
+            android:textSize="16dp" />
+    </LinearLayout>
 
     <HorizontalScrollView
         android:id="@+id/scrollview"
-        android:layout_width="406dp"
-        android:layout_height="174dp"
+        android:layout_width="411dp"
+        android:layout_height="243dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
@@ -19,7 +131,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32">
 
         <LinearLayout
             android:id="@+id/chooseLayout"
@@ -47,14 +160,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/waifu_one" />
+                app:srcCompat="@drawable/waifu_two" />
 
             <ImageView
                 android:id="@+id/ivW3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/waifu_one" />
+                app:srcCompat="@drawable/waifu_three" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -65,12 +178,11 @@
         android:fontFamily="@font/fontmain"
         android:text="@string/choose_waifu"
         android:textSize="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/scrollview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivArrowRightBlack"
@@ -84,5 +196,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.51"
         app:srcCompat="@drawable/arrow_right_black" />
+
+    <ImageView
+        android:id="@+id/ivWaifuOp1"
+        android:layout_width="172dp"
+        android:layout_height="192dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollview"
+        app:layout_constraintVertical_bias="0.32"
+        app:srcCompat="@drawable/waifu_op"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
