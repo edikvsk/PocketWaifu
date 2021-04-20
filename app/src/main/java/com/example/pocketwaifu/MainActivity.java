@@ -1,10 +1,11 @@
 package com.example.pocketwaifu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.HorizontalScrollView;
@@ -12,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,11 +23,13 @@ public class MainActivity extends AppCompatActivity {
     TextView tvChooseW, tvStatsInfo1, tvStatsInfo2, tvStatsInfo3, tvStatsInfo4, tvOk;
     ImageView ivArrowRightBlack, ivW1, ivW2, ivW3, ivWaifuOp1;
     int chooseOk = 0;
+    private static final String TAG = "MyApp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         LinearLayout chooseLayout = (LinearLayout) findViewById(R.id.chooseLayout);
         HorizontalScrollView scrollView = (HorizontalScrollView) findViewById(R.id.scrollview);
@@ -48,75 +54,71 @@ public class MainActivity extends AppCompatActivity {
         ivW3 = (ImageView) findViewById(R.id.ivW3);
         ivWaifuOp1 = (ImageView) findViewById(R.id.ivWaifuOp1);
 
+        ivWaifuOp1.setVisibility(View.INVISIBLE);
+        tvOk.setVisibility(View.INVISIBLE);
+
         //Button Right
         {
             ivArrowRightBlack = (ImageView) findViewById(R.id.ivArrowRightBlack);
 
             ivArrowRightBlack.startAnimation(animArrow);
+
         }
 
-        ivWaifuOp1.setVisibility(View.INVISIBLE);
-        tvOk.setVisibility(View.INVISIBLE);
+
+        
 
         //OnClickListener
         {
-            ivW1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        ivW1.setOnClickListener(v -> {
 
-                    scrollView.scrollTo(0, 0);
-                    ivWaifuOp1.setVisibility(View.VISIBLE);
-                    tvOk.setVisibility(View.VISIBLE);
-                    ivWaifuOp1.setImageResource(R.drawable.waifu_op);
-                    layoutStats.setVisibility(View.VISIBLE);
-                    chooseOk = 1;
-                    layoutStatsInfo.setVisibility(View.VISIBLE);
-                    tvStatsInfo1.setText("166 cm");
-                    tvStatsInfo2.setText("51 kg");
-                    tvStatsInfo3.setText("B");
-                    tvStatsInfo4.setText("Scorpio");
+            scrollView.scrollTo(0, 0);
+            ivWaifuOp1.setVisibility(View.VISIBLE);
+            tvOk.setVisibility(View.VISIBLE);
+            ivWaifuOp1.setImageResource(R.drawable.waifu_op);
+            layoutStats.setVisibility(View.VISIBLE);
+            chooseOk = 1;
+            layoutStatsInfo.setVisibility(View.VISIBLE);
+            tvStatsInfo1.setText("166 cm");
+            tvStatsInfo2.setText("51 kg");
+            tvStatsInfo3.setText("B");
+            tvStatsInfo4.setText("Scorpio");
 
-                }
+        });
+
+            ivW2.setOnClickListener(v -> {
+
+                scrollView.scrollTo(1140, 0);
+                ivWaifuOp1.setVisibility(View.VISIBLE);
+                tvOk.setVisibility(View.VISIBLE);
+                ivWaifuOp1.setImageResource(R.drawable.waifu_op2);
+                layoutStats.setVisibility(View.VISIBLE);
+                chooseOk = 2;
+                layoutStatsInfo.setVisibility(View.VISIBLE);
+                tvStatsInfo1.setText("161 cm");
+                tvStatsInfo2.setText("46 kg");
+                tvStatsInfo3.setText("A");
+                tvStatsInfo4.setText("Libra");
+
             });
 
-            ivW2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            ivW3.setOnClickListener(v -> {
 
-                    scrollView.scrollTo(1140, 0);
-                    ivWaifuOp1.setVisibility(View.VISIBLE);
-                    tvOk.setVisibility(View.VISIBLE);
-                    ivWaifuOp1.setImageResource(R.drawable.waifu_op2);
-                    layoutStats.setVisibility(View.VISIBLE);
-                    chooseOk = 2;
-                    layoutStatsInfo.setVisibility(View.VISIBLE);
-                    tvStatsInfo1.setText("161 cm");
-                    tvStatsInfo2.setText("46 kg");
-                    tvStatsInfo3.setText("A");
-                    tvStatsInfo4.setText("Libra");
+                scrollView.scrollTo(2880, 0);
+                ivWaifuOp1.setVisibility(View.VISIBLE);
+                tvOk.setVisibility(View.VISIBLE);
+                ivWaifuOp1.setImageResource(R.drawable.waifu_op3);
+                layoutStats.setVisibility(View.VISIBLE);
+                chooseOk = 3;
+                layoutStatsInfo.setVisibility(View.VISIBLE);
+                tvStatsInfo1.setText("170 cm");
+                tvStatsInfo2.setText("57 kg");
+                tvStatsInfo3.setText("C");
+                tvStatsInfo4.setText("Leo");
 
-                }
-            });
-
-            ivW3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    scrollView.scrollTo(2880, 0);
-                    ivWaifuOp1.setVisibility(View.VISIBLE);
-                    tvOk.setVisibility(View.VISIBLE);
-                    ivWaifuOp1.setImageResource(R.drawable.waifu_op3);
-                    layoutStats.setVisibility(View.VISIBLE);
-                    chooseOk = 3;
-                    layoutStatsInfo.setVisibility(View.VISIBLE);
-                    tvStatsInfo1.setText("170 cm");
-                    tvStatsInfo2.setText("57 kg");
-                    tvStatsInfo3.setText("C");
-                    tvStatsInfo4.setText("Leo");
-
-                }
             });
         }
+
 
 
     }
